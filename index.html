@@ -192,7 +192,136 @@
       </div>
     </div>
 
-    <!-- STAGE2:DIRECTIONS -->
+    <!-- 3. Направления -->
+    <section class="section directions" id="directions" aria-labelledby="directions-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title" id="directions-title">Три направления&nbsp;— выберите своё</h2>
+          <p class="section-lead">От серьёзного спорта со сборной региона до танца без соревнований и стресса.</p>
+        </div>
+
+        <div class="dirs" data-dirs>
+          <!-- 1 -->
+          <article class="dir dir--pyramid is-active" data-dir="pyramid" data-min="4" data-max="17" data-name="Артистично-пирамидный спорт">
+            <h3 class="dir__heading">
+              <button class="dir__head" type="button" aria-expanded="true" aria-controls="dir-body-1" id="dir-head-1">
+                <span class="dir__num" aria-hidden="true">1</span>
+                <span class="dir__title">Артистично-пирамидный спорт</span>
+                <span class="dir__tags">
+                  <span class="tag tag--lime">Главная гордость</span>
+                  <span class="tag">4–17 лет</span>
+                </span>
+                <span class="dir__chev" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <svg class="dir__art" viewBox="0 0 120 110" aria-hidden="true" focusable="false">
+              <g class="art-pop" style="--i:0"><circle cx="30" cy="70" r="7"/><path d="M30 80v20"/></g>
+              <g class="art-pop" style="--i:0"><circle cx="60" cy="70" r="7"/><path d="M60 80v20"/></g>
+              <g class="art-pop" style="--i:0"><circle cx="90" cy="70" r="7"/><path d="M90 80v20"/></g>
+              <g class="art-pop" style="--i:1"><circle cx="45" cy="38" r="7"/><path d="M45 48v14"/></g>
+              <g class="art-pop" style="--i:1"><circle cx="75" cy="38" r="7"/><path d="M75 48v14"/></g>
+              <g class="art-pop art-pop--accent" style="--i:2"><circle cx="60" cy="9" r="7"/><path d="M60 19v12M52 14l-6-8M68 14l6-8"/></g>
+            </svg>
+            <div class="dir__body" id="dir-body-1" role="region" aria-labelledby="dir-head-1">
+              <div class="dir__body-inner">
+                <p class="dir__quote">«Наш флагман. Самый яркий и&nbsp;серьёзный спорт для тех, кто любит ставить цели и&nbsp;достигать их.»</p>
+                <ul class="dir__list">
+                  <li>Сборная региона: выступления за Архангельскую область на всероссийских соревнованиях</li>
+                  <li>Возможность попасть в сборную России</li>
+                  <li>Официальные спортивные разряды</li>
+                  <li>Поездки на турниры и фестивали по всей стране</li>
+                  <li>Акробатика, хореография и силовая подготовка в комплексе</li>
+                </ul>
+                <a class="btn btn--lime dir__cta" href="#signup" data-direction="pyramid">Хочу попробовать</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="dir dir--dance" data-dir="dance" data-min="3" data-max="17" data-name="Акробатический танец">
+            <h3 class="dir__heading">
+              <button class="dir__head" type="button" aria-expanded="false" aria-controls="dir-body-2" id="dir-head-2">
+                <span class="dir__num" aria-hidden="true">2</span>
+                <span class="dir__title">Акробатический танец</span>
+                <span class="dir__tags">
+                  <span class="tag tag--light">Для души и радости</span>
+                  <span class="tag">3–17 лет</span>
+                </span>
+                <span class="dir__chev" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <svg class="dir__art" viewBox="0 0 120 110" aria-hidden="true" focusable="false">
+              <path class="art-draw" d="M8 92c22-40 52-58 104-62" pathLength="1"/>
+              <g class="art-pop" style="--i:1">
+                <circle cx="66" cy="22" r="8"/>
+                <path d="M66 32 60 62M62 40l-22-12M64 40l24 4M60 62l-18 30M60 62l30 18"/>
+              </g>
+            </svg>
+            <div class="dir__body" id="dir-body-2" role="region" aria-labelledby="dir-head-2">
+              <div class="dir__body-inner">
+                <p class="dir__quote">«Музыка, движение, гибкость и&nbsp;удовольствие. Без соревнований, без стресса — только радость от движений.»</p>
+                <ul class="dir__list">
+                  <li>Музыка, движение и гибкость</li>
+                  <li>Без соревнований и без стресса</li>
+                  <li>Ребёнок учится чувствовать своё тело</li>
+                  <li>Быть лёгким и свободным в движении</li>
+                </ul>
+                <a class="btn btn--paper dir__cta" href="#signup" data-direction="dance">Хочу попробовать</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="dir dir--cheer" data-dir="cheer" data-min="4" data-max="" data-name="Чир-спорт">
+            <h3 class="dir__heading">
+              <button class="dir__head" type="button" aria-expanded="false" aria-controls="dir-body-3" id="dir-head-3">
+                <span class="dir__num" aria-hidden="true">3</span>
+                <span class="dir__title">Чир-спорт</span>
+                <span class="dir__tags">
+                  <span class="tag tag--new">Новинка</span>
+                  <span class="tag">от 4 лет</span>
+                </span>
+                <span class="dir__chev" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <svg class="dir__art" viewBox="0 0 120 110" aria-hidden="true" focusable="false">
+              <g class="art-pop" style="--i:0">
+                <circle cx="60" cy="30" r="8"/>
+                <path d="M60 40v28M58 46 34 22M62 46l24-24M60 68 42 98M60 68l18 30"/>
+              </g>
+              <g class="art-pop art-pop--accent" style="--i:1"><circle cx="28" cy="16" r="10"/><circle cx="92" cy="16" r="10"/></g>
+              <path class="art-pop art-star" style="--i:2" d="m98 66 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"/>
+            </svg>
+            <div class="dir__body" id="dir-body-3" role="region" aria-labelledby="dir-head-3">
+              <div class="dir__body-inner">
+                <p class="dir__quote">«Энергия, улыбки и командный дух! Развитие силы и&nbsp;грации в&nbsp;дружном коллективе.»</p>
+                <ul class="dir__list">
+                  <li>Новинка этого сезона в студии</li>
+                  <li>Развитие силы и грации</li>
+                  <li>Дружный коллектив и командный дух</li>
+                  <li>Свои традиции, соревнования и выступления</li>
+                </ul>
+                <a class="btn btn--dark dir__cta" href="#signup" data-direction="cheer">Хочу попробовать</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Мини-подборщик по возрасту (работает только с JS) -->
+        <div class="picker" data-picker hidden>
+          <p class="picker__q" id="picker-q">Сколько лет ребёнку?</p>
+          <div class="picker__options" role="group" aria-labelledby="picker-q">
+            <button class="picker__btn" type="button" data-from="3" data-to="5" aria-pressed="false">3–5</button>
+            <button class="picker__btn" type="button" data-from="6" data-to="9" aria-pressed="false">6–9</button>
+            <button class="picker__btn" type="button" data-from="10" data-to="13" aria-pressed="false">10–13</button>
+            <button class="picker__btn" type="button" data-from="14" data-to="17" aria-pressed="false">14–17</button>
+          </div>
+          <div class="picker__result" aria-live="polite">
+            <p class="picker__hint">Выберите возраст, и мы подсветим подходящие направления.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- STAGE3:SECTIONS -->
 
