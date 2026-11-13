@@ -175,5 +175,78 @@
     }));
   }
 
-  /* STAGE3:JS */
+  /* ---------- Шаги: линия прочерчивается при прокрутке ---------- */
+  const steps = $('[data-steps]');
+  if (steps) {
+    const items = $$('.step', steps);
+    if (reduceMotion.matches) {
+      steps.style.setProperty('--p', 1);
+      items.forEach((s) => s.classList.add('is-on'));
+    } else {
+      let raf = 0;
+      const draw = () => {
+        raf = 0;
+        const r = steps.getBoundingClientRect();
+        const line = window.innerHeight * 0.62; // «карандаш» на уровне 62% экрана
+        const p = Math.min(1, Math.max(0, (line - r.top) / r.height));
+        steps.style.setProperty('--p', p.toFixed(3));
+        items.forEach((s) => s.classList.toggle('is-on', s.getBoundingClientRect().top < line));
+      };
+      const onScroll = () => { if (!raf) raf = requestAnimationFrame(draw); };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      draw();
+    }
+  }
+
+  /* ---------- Счётчики (только реальные цифры из разметки) ---------- */
+  const counters = $$('[data-count]');
+  const fmt = (n, dec) => n.toFixed(dec).replace('.', ',');
+  const runCounter = (el) => {
+    const target = Number(el.dataset.count);
+    const dec = Number(el.dataset.decimals || 0);
+    const t0 = performance.now();
+    const dur = 1100;
+    const tick = (t) => {
+      const k = Math.min(1, Math.max(0, (t - t0) / dur));
+      const eased = 1 - Math.pow(1 - k, 3);
+      el.textContent = fmt(target * eased, dec);
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if (counters.length && !reduceMotion.matches && 'IntersectionObserver' in window) {
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        $$('[data-count]', en.target).forEach(runCounter);
+        cio.unobserve(en.target);
+      });
+    }, { threshold: 0.6 });
+    cio.observe($('.stats'));
+  }
+
+  /* ---------- Лента событий: кнопки на десктопе ---------- */
+  const scroller = $('[data-events]');
+  const evNav = $('[data-events-nav]');
+  if (scroller && evNav) {
+    evNav.hidden = false;
+    const [prev, next] = $$('.round-btn', evNav);
+    const step = () => {
+      const t = scroller.querySelector('.ticket');
+      return t ? (t.getBoundingClientRect().width + 16) * 2 : 300;
+    };
+    const sync = () => {
+      prev.disabled = scroller.scrollLeft < 4;
+      next.disabled = scroller.scrollLeft + scroller.clientWidth > scroller.scrollWidth - 4;
+    };
+    $$('.round-btn', evNav).forEach((b) => b.addEventListener('click', () => {
+      scroller.scrollBy({ left: Number(b.dataset.dir) * step(), behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    }));
+    scroller.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
+  }
+
+  /* STAGE4:JS */
 })();
