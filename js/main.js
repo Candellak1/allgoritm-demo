@@ -248,5 +248,91 @@
     sync();
   }
 
-  /* STAGE4:JS */
+  /* ---------- «Хочу попробовать» заполняет направление в форме ---------- */
+  const dirSelect = $('#f-dir');
+  $$('[data-direction]').forEach((a) => a.addEventListener('click', () => {
+    if (dirSelect) dirSelect.value = a.dataset.direction;
+  }));
+
+  /* ---------- Демо-форма: маска телефона, проверка, успех ---------- */
+  const form = $('[data-form]');
+  if (form) {
+    const submit = $('[data-submit]', form);
+    const success = $('[data-success]');
+    const phone = $('#f-phone', form);
+    submit.disabled = false;
+
+    // Маска +7 (XXX) XXX-XX-XX
+    const digitsOf = (v) => {
+      let d = v.replace(/\D/g, '');
+      if (v.trim().startsWith('+7')) d = d.slice(1);             // уже с префиксом
+      if (d.length > 10 && /^[78]/.test(d)) d = d.slice(1);      // вставили 8XXXXXXXXXX
+      return d.slice(0, 10);
+    };
+    const formatPhone = (d) => {
+      if (!d) return '';
+      let out = '+7 (' + d.slice(0, 3);
+      if (d.length >= 3) out += ') ' + d.slice(3, 6);
+      if (d.length >= 6) out += '-' + d.slice(6, 8);
+      if (d.length >= 8) out += '-' + d.slice(8, 10);
+      return out;
+    };
+    let prevDigits = '';
+    phone.addEventListener('input', (e) => {
+      let d = digitsOf(phone.value);
+      // Удаление символа форматирования — удаляем и цифру перед ним
+      if (e.inputType && e.inputType.startsWith('delete') && d === prevDigits) d = d.slice(0, -1);
+      // Первая набранная 8 или 7 — это префикс («8 921…»), а не код
+      else if (!prevDigits && /^[78]$/.test(d)) d = '';
+      phone.value = formatPhone(d) || (document.activeElement === phone ? '+7 (' : '');
+      prevDigits = d;
+      if (phone.getAttribute('aria-invalid') === 'true' && d.length === 10) setError(phone, '');
+    });
+    phone.addEventListener('focus', () => { if (!phone.value) phone.value = '+7 ('; });
+    phone.addEventListener('blur', () => { if (phone.value === '+7 (') phone.value = ''; });
+
+    function setError(input, msg) {
+      const err = $('#' + input.id + '-err');
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      if (err) err.textContent = msg;
+    }
+
+    const rules = [
+      [$('#f-name', form), (el) => el.value.trim().length >= 2 ? '' : 'Введите имя — хотя бы 2 буквы'],
+      [$('#f-age', form), (el) => el.value ? '' : 'Выберите возраст ребёнка'],
+      [phone, (el) => digitsOf(el.value).length === 10 ? '' : 'Введите номер полностью: +7 и 10 цифр'],
+      [$('#f-consent', form), (el) => el.checked ? '' : 'Без согласия студия не сможет ответить на заявку'],
+    ];
+    rules.forEach(([el, check]) => {
+      el.addEventListener('change', () => { if (el.getAttribute('aria-invalid') === 'true') setError(el, check(el)); });
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let firstBad = null;
+      rules.forEach(([el, check]) => {
+        const msg = check(el);
+        setError(el, msg);
+        if (msg && !firstBad) firstBad = el;
+      });
+      if (firstBad) { firstBad.focus(); return; }
+
+      // Демо: ничего не отправляем, только показываем результат
+      const name = $('#f-name', form).value.trim();
+      $('[data-success-title]').textContent = `Спасибо, ${name}!`;
+      $('[data-success-text]').textContent = `Заявка принята. Студия свяжется с вами по номеру ${phone.value}.`;
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    });
+
+    $('[data-reset]').addEventListener('click', () => {
+      form.reset();
+      prevDigits = '';
+      rules.forEach(([el]) => setError(el, ''));
+      success.hidden = true;
+      form.hidden = false;
+      $('#f-name', form).focus();
+    });
+  }
 })();

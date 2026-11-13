@@ -8,7 +8,39 @@
   <meta name="description" content="Студия танцев и акробатики ALLGORИТМ в Северодвинске: артистично-пирамидный спорт, акробатический танец и чир-спорт для детей 3–17 лет. Первая неделя занятий — бесплатно!">
   <meta name="theme-color" content="#1b0f3a">
   <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
-  <!-- STAGE4:SEO -->
+  <link rel="canonical" href="https://candellak1.github.io/allgoritm-demo/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="ALLGORИТМ">
+  <meta property="og:title" content="ALLGORИТМ — студия танцев и акробатики в Северодвинске">
+  <meta property="og:description" content="Артистично-пирамидный спорт, акробатический танец и чир-спорт для детей 3–17 лет. Первая неделя занятий — бесплатно!">
+  <meta property="og:url" content="https://candellak1.github.io/allgoritm-demo/">
+  <meta property="og:image" content="https://candellak1.github.io/allgoritm-demo/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ALLGORИТМ: пирамида из акробатов и эквалайзер на фиолетовом фоне">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Студия танцев и акробатики ALLGORИТМ",
+    "description": "Артистично-пирамидный спорт, акробатический танец и чир-спорт для детей 3–17 лет.",
+    "url": "https://candellak1.github.io/allgoritm-demo/",
+    "image": "https://candellak1.github.io/allgoritm-demo/img/og.png",
+    "telephone": "+7-920-422-65-27",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "проспект Труда, 50, 2 этаж",
+      "addressLocality": "Северодвинск",
+      "addressRegion": "Архангельская область",
+      "addressCountry": "RU"
+    },
+    "sameAs": ["https://vk.com/allgorit"]
+  }
+  </script>
 
   <script>document.documentElement.classList.replace('no-js','js')</script>
 
@@ -543,10 +575,124 @@
       </div>
     </section>
 
-    <!-- STAGE4:FORM -->
+    <!-- 9. Заявка (демо-форма) -->
+    <section class="section signup on-light" id="signup" aria-labelledby="signup-title">
+      <div class="wrap signup__grid">
+        <div class="signup__intro">
+          <h2 class="section-title" id="signup-title">Запишитесь на&nbsp;первую неделю</h2>
+          <p class="section-lead">Оставьте номер — студия свяжется с вами и подскажет, в какую группу прийти.</p>
+          <ul class="quick">
+            <li><a class="quick__link" href="tel:+79204226527">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8Z"/></svg>
+              <span><b>Позвонить</b><small>+7 (920) 422-65-27</small></span>
+            </a></li>
+            <li><a class="quick__link" href="https://vk.me/allgorit" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3.5V17H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
+              <span><b>Написать во&nbsp;ВКонтакте</b><small>vk.me/allgorit</small></span>
+            </a></li>
+            <li><a class="quick__link" href="https://yandex.ru/maps/?text=%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A2%D1%80%D1%83%D0%B4%D0%B0%2C%2050" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>
+              <span><b>Маршрут</b><small>пр. Труда, 50, 2&nbsp;этаж</small></span>
+            </a></li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <form class="form" id="signup-form" novalidate data-form>
+            <div class="field">
+              <label for="f-name">Ваше имя</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="60" aria-describedby="f-name-err">
+              <p class="field__err" id="f-name-err"></p>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-age">Возраст ребёнка</label>
+                <select id="f-age" name="age" required aria-describedby="f-age-err">
+                  <option value="">Выберите</option>
+                  <option>3 года</option><option>4 года</option><option>5 лет</option><option>6 лет</option><option>7 лет</option>
+                  <option>8 лет</option><option>9 лет</option><option>10 лет</option><option>11 лет</option><option>12 лет</option>
+                  <option>13 лет</option><option>14 лет</option><option>15 лет</option><option>16 лет</option><option>17 лет</option>
+                </select>
+                <p class="field__err" id="f-age-err"></p>
+              </div>
+              <div class="field">
+                <label for="f-dir">Направление <span class="field__opt">(необязательно)</span></label>
+                <select id="f-dir" name="direction">
+                  <option value="">Пока не знаю</option>
+                  <option value="pyramid">Артистично-пирамидный спорт</option>
+                  <option value="dance">Акробатический танец</option>
+                  <option value="cheer">Чир-спорт</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
+              <p class="field__err" id="f-phone-err"></p>
+            </div>
+            <div class="field field--check">
+              <input id="f-consent" name="consent" type="checkbox" required aria-describedby="f-consent-err">
+              <label for="f-consent">Согласен(-на) на обработку персональных данных, чтобы студия могла ответить на&nbsp;заявку</label>
+              <p class="field__err" id="f-consent-err"></p>
+            </div>
+            <button class="btn btn--primary btn--lg form__submit" type="submit" disabled data-submit>Отправить заявку</button>
+            <noscript><p class="form__noscript">Форма работает с включённым JavaScript. Можно сразу позвонить или написать во&nbsp;ВКонтакте.</p></noscript>
+            <p class="form__demo" data-demo>Демо: в рабочей версии заявки приходят вам во&nbsp;ВКонтакте/Telegram</p>
+          </form>
+
+          <div class="success" data-success hidden tabindex="-1" aria-live="polite">
+            <div class="success__eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <p class="success__title" data-success-title>Заявка отправлена</p>
+            <p class="success__text" data-success-text></p>
+            <p class="form__demo" data-demo>Демо: заявка никуда не ушла. В рабочей версии она сразу приходит студии во&nbsp;ВКонтакте/Telegram</p>
+            <button class="btn btn--outline-dark" type="button" data-reset>Заполнить ещё раз</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Контакты -->
+    <section class="section contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="wrap">
+        <h2 class="section-title" id="contacts-title">Контакты</h2>
+        <div class="contacts__grid">
+          <address class="contact">
+            <p class="contact__label">Адрес</p>
+            <p class="contact__value">Северодвинск, проспект Труда,&nbsp;50, 2&nbsp;этаж</p>
+            <a class="contact__link" href="https://yandex.ru/maps/?text=%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A2%D1%80%D1%83%D0%B4%D0%B0%2C%2050" target="_blank" rel="noopener">Построить маршрут в Яндекс.Картах</a>
+          </address>
+          <div class="contact">
+            <p class="contact__label">Телефон</p>
+            <p class="contact__value"><a href="tel:+79204226527">+7 (920) 422-65-27</a></p>
+          </div>
+          <div class="contact">
+            <p class="contact__label">ВКонтакте</p>
+            <p class="contact__value"><a href="https://vk.com/allgorit" target="_blank" rel="noopener">vk.com/allgorit</a></p>
+            <a class="contact__link" href="https://vk.me/allgorit" target="_blank" rel="noopener">Написать сообщение</a>
+          </div>
+          <div class="contact">
+            <p class="contact__label">Идейный руководитель</p>
+            <p class="contact__value">Евгения Ржавитина</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- STAGE4:FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="logo" href="#top" aria-label="ALLGORИТМ — наверх">
+        <svg class="logo__mark" viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1" y="10" width="4" height="14" rx="2"/><rect x="8" y="3" width="4" height="21" rx="2"/><rect x="15" y="7" width="4" height="17" rx="2"/><rect x="22" y="0" width="4" height="24" rx="2"/>
+        </svg>
+        <span class="logo__word">ALLGORИТМ</span>
+      </a>
+      <p class="footer__about">Студия танцев и акробатики в&nbsp;Северодвинске</p>
+    </div>
+    <div class="wrap footer__demo" data-demo>
+      <p>Демо-версия сайта подготовлена Сергеем Чеботарёвым · <a href="tel:+79056047464">+7 905 604-74-64</a></p>
+    </div>
+  </footer>
 </body>
 </html>
