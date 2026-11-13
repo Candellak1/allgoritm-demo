@@ -313,6 +313,11 @@ html:not([data-demo-mode]) [data-demo] { display: none !important; }
   transform-origin: 50% 100%;
   transform: scaleY(.35);
 }
+/* Статичный «рисунок» эквалайзера (виден при reduced-motion; анимация его перекрывает) */
+.equalizer span:nth-child(3n + 1) { transform: scaleY(.6); }
+.equalizer span:nth-child(4n + 2) { transform: scaleY(.85); }
+.equalizer span:nth-child(5n) { transform: scaleY(.45); }
+.equalizer span:nth-child(7n + 3) { transform: scaleY(1); }
 .equalizer span:nth-child(n + 21) { display: none; }
 @media (prefers-reduced-motion: no-preference) {
   .equalizer span { animation: eq var(--d, 1s) ease-in-out var(--dl, 0s) infinite alternate; }
@@ -814,4 +819,3 @@ html:not([data-demo-mode]) [data-demo] { display: none !important; }
 .footer__demo p { padding-top: 18px; border-top: 1px solid rgba(185, 169, 238, .16); }
 .footer__demo a { color: var(--paper); text-underline-offset: 3px; white-space: nowrap; }
 
-/* STAGE5 */
