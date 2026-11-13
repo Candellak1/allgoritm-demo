@@ -72,4 +72,4 @@ python3 -m http.server 8000
 - `prefers-reduced-motion`: пирамида сразу в собранном виде, эквалайзер, волны и бегущая строка стоят.
 - Без JavaScript весь контент виден: направления раскрыты, меню строкой, форма показывает подсказку позвонить или написать.
 - Вес страницы без шрифтов ≈ 100 КБ (≈ 26 КБ в gzip).
-- **Lighthouse не запускался**: на компьютере нет Node.js. После публикации проверьте на https://pagespeed.web.dev/ или в Chrome: DevTools → Lighthouse → Mobile.
+- **Lighthouse, мобильный профиль** (PageSpeed Insights, Lighthouse 13.6, Moto G Power, медленный 4G; 14.11.2026): Performance **98**, Accessibility **100**, Best Practices **100**, SEO **100**. FCP 0,9 с, LCP 0,9 с, TBT 0 мс, CLS 0. Повторить проверку: https://pagespeed.web.dev/
