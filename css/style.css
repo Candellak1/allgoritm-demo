@@ -817,5 +817,4 @@ html:not([data-demo-mode]) [data-demo] { display: none !important; }
 .footer__about { color: var(--violet-300); font-size: .9375rem; }
 .footer__demo { margin-top: 20px; font-size: .8125rem; color: var(--violet-300); }
 .footer__demo p { padding-top: 18px; border-top: 1px solid rgba(185, 169, 238, .16); }
-.footer__demo a { color: var(--paper); text-underline-offset: 3px; white-space: nowrap; }
 
